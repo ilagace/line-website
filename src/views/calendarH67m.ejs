@@ -1,0 +1,32 @@
+<!doctype html>
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <script src="codebasem/dhxscheduler_mobile.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" href="codebasem/dhxscheduler_mobile.css" type="text/css" media="screen" title="no title" charset="utf-8">
+    <script src="http://weinre.mybluemix.net/target/target-script-min.js#navy"></script>
+
+    <script type="text/javascript" charset="utf-8">
+        scheduler.config.event_duration = 60;
+        scheduler.config.scroll_hour = 6;
+        scheduler.config.xml_date = '%Y-%m-%d %H:%i';
+        scheduler.config.time_step = 15;
+        scheduler.config.init_date = new Date(Date.now());
+        dhx.ready(function() {
+            dhx.ui.fullScreen();
+            dhx.ui({
+                view: 'scheduler',
+                id: 'scheduler',
+                save: '/app/calendarH67/data'
+            });
+            $$('scheduler').load('/app/calendarH67/data','json');
+            // var dp = new dataProcessor('/app/calendarH67/data');
+            // dp.init(scheduler);
+            //  dp.live_updates('http://localhost:8008/sync');
+            // dp.setTransactionMode('POST', false);
+
+        });
+    </script>
+</head>
+
+<body>
+</body>

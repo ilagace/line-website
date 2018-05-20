@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Comic Page</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        function toggle(source) {
+            var checkboxes = document.getElementsByTagName('input');
+            for (var i = 0; i < checkboxes.length; i++) {
+                checkboxes[i].checked = source.checked;
+            }
+        }
+    </script>
+</head>
+<body>
+  <div class="container">
+    <form action="/app/comicsedit/" method="post">
+    <div class="form-group">
+      <div class="row">
+        <h3></h3>
+        <h3 class="text-center">Select all the comics you would like to see on your page and click Save at bottom</h3>
+        <h3></h3>
+        <input type="checkbox" onClick="toggle(this)" /> Toggle All<br/>
+        <div class="col-md-12">
+        <h3></h3>
+          <% for(var i = 0; i < data.length; i++) {%>
+          <div class="checkbox-inline">
+            <% if (datacheck[i] == 'checked') {%>
+            <label><input id="select" name="<%=data[i][2]%>" type="checkbox"  checked ><%=data[i][1]%></label>
+            <% } else { %>
+            <label><input id="select" name="<%=data[i][2]%>" type="checkbox"><%=data[i][1]%></label>
+            <% } %>
+            <a href="<%=data[i][3]%>"><img class="img-responsive" src="/comics/<%=data[i][2]%>/<%=data[i][0]%>"></img></a>
+            <h3></h3>
+          </div>
+          <% } %>
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Comic Page</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script type="text/javascript" src="js/jquery-1.12.2.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  </head>
+  <body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h3></h3>
+        <a href="/app/comicsedit/" class="btn btn-default" role="button">Edit your Comic Page</a>
+      </div>
+    </div>
+    <% for(var i = 0; i < data.length; i++) {%>
+    <div class="row">
+      <div class="col-md-12">
+        <h3 class="text-left"><%=data[i][1]%></h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <img class="img-responsive" src="/comics/<%=data[i][0]%>/<%=data[i][2]%>.jpg"></img>
+      </div>
+    </div>
+    <% } %>
+  </div>
+
+</body></html>
